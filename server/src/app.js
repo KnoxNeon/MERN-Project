@@ -22,9 +22,8 @@ app.get('/user', (req, res) => {
 
 //client error
 app.use((req, res, next) => {
-  createError(404, 'route not found')
-  next();
-})
+  next(createError(404, 'route not found'));
+});
 
 //server error
 app.use((err, req, res, next) => {
