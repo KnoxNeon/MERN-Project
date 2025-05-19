@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const port = 3000
 const morgan = require('morgan')
 const createError = require('http-errors')
 // const xssClean = require('xss-clean')
