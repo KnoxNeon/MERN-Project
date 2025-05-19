@@ -4,6 +4,7 @@ const morgan = require('morgan')
 const createError = require('http-errors')
 // const xssClean = require('xss-clean')
 const rateLimit = require('express-rate-limit')
+const userRouter = require('./routers/userRouter')
 
 
 const rateLimiter  = rateLimit({
@@ -18,16 +19,14 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+app.use('/api/users', userRouter)
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/user', (req, res) => {
-    res.status(200).send({
-    message: 'user profile is returned'
-  });
-});
+
 
 //client error
 app.use((req, res, next) => {
