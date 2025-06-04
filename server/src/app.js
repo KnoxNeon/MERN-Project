@@ -5,7 +5,8 @@ const createError = require('http-errors')
 // const xssClean = require('xss-clean')
 const rateLimit = require('express-rate-limit')
 const userRouter = require('./routers/userRouter')
-const seedRouter = require('./routers/seedRouter')
+const seedRouter = require('./routers/seedrouter')
+
 
 
 
