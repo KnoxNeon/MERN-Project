@@ -9,10 +9,6 @@ const userRouter = require('./routers/userRouter')
 const seedRouter = require('./routers/seedrouter')
 const { errorResponse } = require('./controllers/responseController')
 
-
-
-
-
 const rateLimiter  = rateLimit({
   windowMs: 1 * 60 * 1000,
   max: 5,
