@@ -85,4 +85,21 @@ const deleteUserById = async (req, res, next) => {
         next(error)
     }
 };
-module.exports = {getUsers, getUserById, deleteUserById};
+
+const processRegister = async (req, res, next) => {
+    try {
+        const {name, email, password, phone, address} = req.body;
+
+        const newUser = { name, email, password, phone, address, };
+    
+
+        return successResponse(res, {
+            statusCode: 200,
+            message: "User was created successfully",
+            payload: {newUser},
+        });
+    } catch (error) {
+        next(error)
+    }
+};
+module.exports = {getUsers, getUserById, deleteUserById, processRegister};
