@@ -4,7 +4,7 @@ const User = require('../models/userModel');
 const { successResponse } = require('./responseController');
 const { findWithId } = require('../services/findItem');
 const deleteImage = require('../helper/deleteImage');
-const { jwtActivationKey } = require('../secret');
+const { jwtActivationKey, clientURL } = require('../secret');
 
 
 const getUsers = async (req, res, next) => {
@@ -111,8 +111,7 @@ const processRegister = async (req, res, next) => {
             subject: 'Account Activation Mail',
             html: `
             <h2> Hello ${name} !</h2>
-            <p> Please click here to <a> activate your account </a> </p>
-            
+            <p> Please click here to <a href="${clientURL}/api/users/activate/${token} target="_blank"> activate your account </a> </p>
             `
         }
 
